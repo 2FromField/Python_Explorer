@@ -25,6 +25,14 @@ _Try anything and everything new in python_
   Principe: Peu importe la distribution d'origine de vos données, la moyenne d'un grand nombre d'échantillons suit une distribution normale. <br>
   Utilité: C'est la raison pour laquelle la normalité est si omniprésente en statistiques; elle permet de faire des ests et des intervalles de confiance, même si les données ne sont pas initialement normales. <br>
 
+## OpenData links:
+
+- Kaggle [https://www.kaggle.com/datasets]
+- Data Gouv [https://www.data.gouv.fr/fr/datasets/]
+- Google Data Search [https://datasetsearch.research.google.com]
+- UCI ML Repository [https://archive.ics.uci.edu]
+- Amazon Public Datasets [https://aws.amazon.com/marketplace/search/results?trk=868d8747-614e-4d4d-9fb6-fd5ac02947a8&sc_channel=el&FULFILLMENT_OPTION_TYPE=DATA_EXCHANGE&CONTRACT_TYPE=OPEN_DATA_LICENSES&filters=FULFILLMENT_OPTION_TYPE%2CCONTRACT_TYPE]
+
 ## Liens:
 
 - Marimo : https://marimo.io - https://github.com/marimo-team/marimo (jupyter notebook in real time)
