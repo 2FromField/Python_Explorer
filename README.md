@@ -25,6 +25,26 @@ _Try anything and everything new in python_
   Principe: Peu importe la distribution d'origine de vos données, la moyenne d'un grand nombre d'échantillons suit une distribution normale. <br>
   Utilité: C'est la raison pour laquelle la normalité est si omniprésente en statistiques; elle permet de faire des ests et des intervalles de confiance, même si les données ne sont pas initialement normales. <br>
 
+## Stats:
+
+- Standardisation: <br>
+  Objectif: Transformer les données pour qu'elles aient une moyenne nulle et une variance égale à 1. <br>
+  Méthode: Chaque valeur de la donnée est transformée en soustrayant la moyenne de la variable et en divisant par l'écart-type de cette variable. <br>
+  Utilisation: utilisée lorsque _les données suivent une distribution normale ou gaussienne_. Particulièrement utile pour les algorithmes basés sur les distances (comme les SVM, KNN) et ceux qui utilisent des régularisations (régressions linéaires et logistiques).
+- Normalisation: <br>
+  Objectif: Redimensionner les données pour qu'elles se situent dans un intervalle spécifique, souvent [0,1] ou [-1,1]. <br>
+  Méthode: Chaque valeur de la donnée est transformée en soustrayant la vzaleur minimale et en divisant par l'intervalle de la variable (la différence entre la valeur maximale et minimale). <br>
+  Utilisation: Utilisée lorsque _les données ne suivent pas une distribution gaussienne_ et ont des écarts significatifs en termes d'échelle. Particulièrement utile pour les réseaux de neurones et les algorithmes qui utiisent des distances (comme KNN).
+-
+
+- Interprétation d'une ACP: <br>
+  PC1 = première composante principale <br>
+  PC2 = deuxième composante principale <br>
+  Dans l'espace PC1-PC2, LS a pour coordonnées (0.5, 0.85): la composante de PC1 est de 0.5 et celle de PC2 de 0.85 <br>
+  0.85 étant supérieur à 0.5 (en absolu), cela signifie que la LS est plus importante pour PC2. <br>
+  La longueur du vecteur reflète l'importance de la contribution de LS à la variance des données. Plus le vecteur est long, plus LS contribue à la variance des données dans les deux directions principales. <br>
+  La direction du vecteur indique où LS contribue le plus à la variance des données. <br>
+
 ## OpenData links:
 
 - Kaggle [https://www.kaggle.com/datasets]
