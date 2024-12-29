@@ -1,6 +1,7 @@
+## Créer un graphique linéaire de manière automatique dans une feuille excel
 import xlsxwriter
 
-path = "Test.xlsx"
+path = "assets/Test.xlsx"
 workbook = xlsxwriter.Workbook(path)
 sheet = workbook.add_worksheet(name="hello")
 data = [15, 55, 65, 20, 5, 10]
@@ -13,3 +14,5 @@ chart.add_series({"values": "=Hello!$A$1:$A$6"})
 # Ajouter le graphique à la feuille
 sheet.insert_chart("C1", chart)
 workbook.close()
+
+##
