@@ -46,10 +46,34 @@ from collections import defaultdict
 
 d = defaultdict(list)
 d["Fruits"].append("Kiwi")
-d["Cas"].append("Peugeot")
+d["Cars"].append("Peugeot")
 print(d)
 print(d["Fruits"])
 print(d["Cars"])
 print(d["Legumes"])
 
 # ------------------------------------------------------------------------------------
+# Les validations intelligentes
+sentence = "Les biquettes sont roses, dans le pays du soleil"
+print(sentence.isprintable()) # vérifiez si le texte est affichable sans surprise
+print(sentence.isascii()) # identifiez les caractères spéciaux sans regex
+
+# Les transformations puissantes
+print(sentence.casefold()) # plus puissant que lower() pour l'international
+# table = str.maketrans("e","3") # créer une table de traduction (1)
+table = str.maketrans({"e":"3", "i":"1"}) # créer une table de traduction (2)
+translated = sentence.translate(table) # appliquer la traduction
+print(translated)
+
+# Manipulation intelligente
+name = "Alice"
+age = 30
+result = "My name is {name} and I am {age} years old.".format_map(vars()) # iniection magique de toutes vos variables locales
+print(result)
+
+print(sentence.partition(', ')) # split intelligent qui garde le séparateur
+
+# Remplacer les strips()
+text = "prefix_example_suffix"
+print(text.removeprefix("prefix_")) # retirer un prefix
+print(text.removesuffix("_suffix")) # retirer un suffix
