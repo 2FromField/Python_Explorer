@@ -57,6 +57,7 @@ _Try anything and everything new in python_
 
 - Aquarel : https://medium.com/@alexroz/matplotlib-makeover-6-python-styling-libraries-for-amazing-plots-5152f16992f5
 - Marimo : https://marimo.io - https://github.com/marimo-team/marimo (jupyter notebook in real time)
+- Mypy : https://github.com/python/mypy
 - Taipy : https://taipy.io (web application)
 
 ## Mémo technique:
