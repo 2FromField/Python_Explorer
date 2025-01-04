@@ -55,25 +55,106 @@ print(d["Legumes"])
 # ------------------------------------------------------------------------------------
 # Les validations intelligentes
 sentence = "Les biquettes sont roses, dans le pays du soleil"
-print(sentence.isprintable()) # vérifiez si le texte est affichable sans surprise
-print(sentence.isascii()) # identifiez les caractères spéciaux sans regex
+print(sentence.isprintable())  # vérifiez si le texte est affichable sans surprise
+print(sentence.isascii())  # identifiez les caractères spéciaux sans regex
 
 # Les transformations puissantes
-print(sentence.casefold()) # plus puissant que lower() pour l'international
+print(sentence.casefold())  # plus puissant que lower() pour l'international
 # table = str.maketrans("e","3") # créer une table de traduction (1)
-table = str.maketrans({"e":"3", "i":"1"}) # créer une table de traduction (2)
-translated = sentence.translate(table) # appliquer la traduction
+table = str.maketrans({"e": "3", "i": "1"})  # créer une table de traduction (2)
+translated = sentence.translate(table)  # appliquer la traduction
 print(translated)
 
 # Manipulation intelligente
 name = "Alice"
 age = 30
-result = "My name is {name} and I am {age} years old.".format_map(vars()) # iniection magique de toutes vos variables locales
+result = "My name is {name} and I am {age} years old.".format_map(
+    vars()
+)  # iniection magique de toutes vos variables locales
 print(result)
 
-print(sentence.partition(', ')) # split intelligent qui garde le séparateur
+print(sentence.partition(", "))  # split intelligent qui garde le séparateur
 
 # Remplacer les strips()
 text = "prefix_example_suffix"
-print(text.removeprefix("prefix_")) # retirer un prefix
-print(text.removesuffix("_suffix")) # retirer un suffix
+print(text.removeprefix("prefix_"))  # retirer un prefix
+print(text.removesuffix("_suffix"))  # retirer un suffix
+
+# ------------------------------------------------------------------------------------
+
+# Mesurer et afficher le temps d'exécution d'une fonction Python
+import time
+
+
+# Définition du décorateur
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()  # Début du chronométrage
+        result = func(*args, **kwargs)  # Exécuter la fonction
+        end_time = time.time()  # Fin du chronométrage
+        execution_time = end_time - start_time
+        print(f"Function '{func.__name__}' executed in {execution_time:.4f} seconds.")
+        return result
+
+    return wrapper
+
+
+# Utilisation du décorateur
+@timer
+def example_function(n):
+    total = 0
+    for i in range(n):
+        total += i
+    return total
+
+
+# Appeler la fonction décorée
+result = example_function(1000000)
+print(f"Result: {result}")
+
+# ------------------------------------------------------------------------------------
+
+# Le décorateur @auth est souvent utilisé pour gérer l'authentification ou la vérification d'accès à une fonction
+# Variable simulant l'état d'authentification
+current_user = {"authenticated": False}  # Changez à True pour tester
+
+
+# Définition du décorateur
+def auth(func):
+    def wrapper(*args, **kwargs):
+        if current_user.get("authenticated"):
+            print("User is authenticated. Access granted.")
+            return func(*args, **kwargs)
+        else:
+            print("User is not authenticated. Access denied.")
+            return None  # Ou lever une exception si nécessaire
+
+    return wrapper
+
+
+# Utilisation du décorateur
+@auth
+def sensitive_action():
+    print("Performing a sensitive action!")
+
+
+# Tester la fonction
+sensitive_action()
+
+# ------------------------------------------------------------------------------------
+# Le décorateur @cache est utilisé pour optimiser les performances en mémorisant les résultats de fonctions coûteuses afin qu'elles ne soient pas recalculées pour les mêmes arguments
+
+from functools import lru_cache
+
+
+# Application du décorateur
+@lru_cache(maxsize=128)  # maxsize limite le nombre de résultats mis en cache
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+# Utilisation de la fonction
+print(fibonacci(10))  # Calcul initial
+print(fibonacci(10))  # Récupéré depuis le cache
