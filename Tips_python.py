@@ -158,3 +158,41 @@ def fibonacci(n):
 # Utilisation de la fonction
 print(fibonacci(10))  # Calcul initial
 print(fibonacci(10))  # Récupéré depuis le cache
+
+
+# ------------------------------------------------------------------------------------
+# Walrus operator
+
+users = [
+    {"name": "Jason", "password": None},
+    {"name": "Kevin", "password": "123"},
+    {"name": "Dylan"},
+]
+
+for user in users:
+    if secret_password := user.get("password"):
+        print(f"Password found for user {user['name']} ! {secret_password}")
+
+
+# ------------------------------------------------------------------------------------
+# Dataclasses -> Permet de créer des classes rapidement sans initialisation
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    name: str
+    age: int
+
+
+if __name__ == "__main__":
+    user = User("Kevin", 21)
+    print(f"Hey, {user.name}, what's up ?!")
+
+# ------------------------------------------------------------------------------------
+# Fusion de dictionnaires
+user_info = {"name": "Alice", "age": 30}
+user_prefs = {"age": 30, "theme": "dark"}
+
+merged = {**user_info, **user_prefs}
+print(merged)
