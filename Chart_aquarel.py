@@ -45,29 +45,29 @@ def hist():
 
 
 # artic_light OR arctic_dark
-# with load_theme("arctic_light"):
+with load_theme("arctic_light"):
 
-fig, ax = plt.subplots(ncols=2, nrows=2, figsize=(16, 9))
-df = scatter()
-f = ax[0, 0].scatter(df.X, df.Y, c=df.Z, s=50)
-ax[0, 0].set_xlabel("X data")
-ax[0, 0].set_ylabel("Y data")
-handles, labels = f.legend_elements(prop="colors", alpha=0.6)
-legend2 = ax[0, 0].legend(handles, labels, loc="lower right")
+    fig, ax = plt.subplots(ncols=2, nrows=2, figsize=(16, 9))
+    df = scatter()
+    f = ax[0, 0].scatter(df.X, df.Y, c=df.Z, s=50)
+    ax[0, 0].set_xlabel("X data")
+    ax[0, 0].set_ylabel("Y data")
+    handles, labels = f.legend_elements(prop="colors", alpha=0.6)
+    legend2 = ax[0, 0].legend(handles, labels, loc="lower right")
 
-df = line()
-df.plot(x="X", ax=ax[0, 1])
+    df = line()
+    df.plot(x="X", ax=ax[0, 1])
 
-df = hist()
-sns.kdeplot(df, fill=True, ax=ax[1, 0])
-ax[1, 0].set_xlabel("Value")
+    df = hist()
+    sns.kdeplot(df, fill=True, ax=ax[1, 0])
+    ax[1, 0].set_xlabel("Value")
 
-sns.kdeplot(df, x="X_1", y="X_2", fill=True, ax=ax[1, 1])
-sns.kdeplot(df, x="X_3", y="X_4", fill=True, ax=ax[1, 1])
-ax[1, 1].set_xlabel("Dist 1")
-ax[1, 1].set_ylabel("Dist 2")
+    sns.kdeplot(df, x="X_1", y="X_2", fill=True, ax=ax[1, 1])
+    sns.kdeplot(df, x="X_3", y="X_4", fill=True, ax=ax[1, 1])
+    ax[1, 1].set_xlabel("Dist 1")
+    ax[1, 1].set_ylabel("Dist 2")
 
-plt.suptitle("Aquarel\narctic_light", fontsize=24)
-plt.style.use("./themes/rose-pine-moon.mplstyle")
-plt.savefig("arctic_light.jpg")
-plt.show()
+    plt.suptitle("Aquarel\narctic_light", fontsize=24)
+    # plt.style.use("./themes/rose-pine-moon.mplstyle")
+    plt.savefig("arctic_light.jpg")
+    plt.show()
