@@ -196,3 +196,41 @@ user_prefs = {"age": 30, "theme": "dark"}
 
 merged = {**user_info, **user_prefs}
 print(merged)
+
+
+# ------------------------------------------------------------------------------------
+# Inverser un string
+string = "lapin"
+print(string[::-1])
+
+# ------------------------------------------------------------------------------------
+# Ajouter une nouvelle colonne à un dataframe avec la méthode .assign()
+df = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
+
+# Ajouter une colonne C en fonction des valeurs de la colonne A
+df2 = df.assign(Cheval=df["A"] * 2)
+
+print(df2)
+
+# ------------------------------------------------------------------------------------
+# Filtrer avec la méthode .query()
+df = pd.DataFrame({"A": [1, 2, 3, 4, 5], "B": [10, 15, 10, 5, 10]})
+
+# Filtrer les lignes où A > 2
+result = df.query("A > 2")
+print(result)
+
+
+# Libraries pyjanitor
+import janitor as pj
+
+df = pd.DataFrame(
+    {
+        "First Name": [1, 2],
+        "Last Name ": [3, 4],
+        "Birth Year": [1990, 1991],
+        "B": [None, 2],
+        "size": ["small", "large"],
+    }
+)
+df_clean = df.clean_names()  # Nettoyage des noms de colonnes
